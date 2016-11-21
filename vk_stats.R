@@ -1,4 +1,4 @@
-statsVK <- function(vk_token, acc_id, cli_id, startdate, campaign_ids, o_type = "campaign", stat_period = "day", ...)
+statsVK <- function(vk_token, acc_id, startdate, campaign_ids, o_type = "campaign", stat_period = "day", ...)
 {
   library("jsonlite")
   dots <- list(...)
@@ -30,5 +30,5 @@ statsVK <- function(vk_token, acc_id, cli_id, startdate, campaign_ids, o_type = 
   vk_stats = content(vk_stats)
   vk_stats = vk_stats$response
   vk_json <- jsonlite::toJSON(vk_stats)
-  return(list(digest = vk_digest, stats = vk_stats))
+  return(vk_json)
 }
