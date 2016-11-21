@@ -19,3 +19,4 @@ campaignsVK <- function(vk_token, acc_id, cli_id, archive = 1,...)
   vk_digest <- unique(vk_digest)
   return(camp_list)
 }
+
