@@ -21,4 +21,3 @@ tokenVK <- function(save = FALSE, scope = "ads", ...)
   }
   return(vk_token)
 }
-
