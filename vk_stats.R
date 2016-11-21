@@ -16,7 +16,7 @@ statsVK <- function(vk_token, acc_id, startdate, campaign_ids, o_type = "campaig
   }
   else
   {
-    end <- as.Date(Sys.Date(), "DD-MM-YYYY")
+    end <- as.Date(Sys.Date(), "YYYY-MM-DD")
   }
   vk_stats <- GET("https://api.vk.com/method/ads.getStatistics", query = list(
     access_token = vk_token,
