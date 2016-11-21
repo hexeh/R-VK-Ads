@@ -1,5 +1,6 @@
 tokenVK <- function(save = FALSE, scope = "ads", ...)
 {
+  dots <- list(...)
   if("token" %in% names(dots))
   {
     vk_token = dots[["token"]]
