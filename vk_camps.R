@@ -1,5 +1,6 @@
 campaignsVK <- function(vk_token, acc_id, cli_id, archive = 1,...)
 {
+  dots <- list(...)
   if("lib" %in% names(dots)){
     library("httr", lib.loc = dots[["lib"]])
   }
