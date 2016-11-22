@@ -23,12 +23,12 @@ tokenVK(store = TRUE, token = my_token)
 
 ---
 
-#Получение списка кампаний
+#Получение списка объектов
  
 ```R
 my_account_id = "1234567890"
 my_client_id = "123456"
-list_of_campaigns <- campaignsVK(my_token, my_account_id, my_client_id, archive = 0)
+list_of_campaigns <- objectsVK(vk_token, acc_id = my_account_id, cli_id = my_client_id, o_type = "campaign")
  ```
 
 Возможные входные параметры:
@@ -36,7 +36,12 @@ list_of_campaigns <- campaignsVK(my_token, my_account_id, my_client_id, archive 
  - **acc_id**;
  - **cli_id**;
  - **archive** - включать или нет заархивированные кампании в список, [подробнее](https://vk.com/dev/ads.getCampaigns);
- - **lib** - расположение библиотеки *httr*, по умолчанию будет произведена попытка подключить библиотеки из стандартного расположения
+ - **lib** - расположение библиотеки *httr*, по умолчанию будет произведена попытка подключить библиотеки из стандартного расположения;
+ - **o_type** - тип возвращаемого объекта - "campaign", "ad", "client", "office";
+ - **campaign_ids** - параметр фильтрации по ID кампаний, может использоваться при получении списка объявлений;
+ - **ad_ids** - параметр фильтрации по ID объявлений, может использоваться при получении списка объявлений;
+ - **limit** - параметр ограничения количества возвращаемых элементов, может использоваться при получении списка объявлений;
+ - **offset** - параметр смещения в массиве возвращаемых элементов, может использоваться при получении списка объявлений;
  
  
 Описание возвращаемого [объекта](https://vk.com/dev/ads.getCampaigns)
@@ -46,8 +51,8 @@ list_of_campaigns <- campaignsVK(my_token, my_account_id, my_client_id, archive 
 #Получение статистики
 
 ```R
-ids_list <- list_of_campaigns[,1]
-ids_list <- unique(ids_list)
+ids_list <- list_of_campaigns$digest[,1]
+ids_list <- toString(unique(ids_list))
 my_ads_stats <- statsVK(my_token, my_account_id, startdate = "2016-10-20", campaign_ids = ids_list)
 write(my_ads_stats, file = "my_stats.json")
 ```
@@ -70,8 +75,8 @@ write(my_ads_stats, file = "my_stats.json")
 #Получение данных о демографии
 
 ```R
-ids_list <- list_of_campaigns[,1]
-ids_list <- unique(ids_list)
+ids_list <- list_of_campaigns$digest[,1]
+ids_list <- toString(unique(ids_list))
 my_dmg_stats <- demographVK(my_token, my_account_id, startdate = "2016-10-20", campaign_ids = ids_list)
 write(my_dmg_stats, file = "my_stats.json")
 ```
