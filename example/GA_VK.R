@@ -60,9 +60,6 @@ my_account_id = "1234567890"
 my_client_id = "123456"
 list_of_campaigns <- objectsVK(vk_token, acc_id = my_account_id, cli_id = my_client_id, o_type = "campaign")
 camp_list <- content(vk_camp)
-vk_digest <- data.frame(do.call(rbind, camp_list$response))
-vk_digest <- vk_digest[, c(1,2,3)]
-vk_digest <- unique(vk_digest)
 ids_list <- list_of_campaigns$digest[,1]
 ids_list <- toString(unique(ids_list))
 my_ads_stats <- statsVK(my_token, my_account_id, startdate = "2016-11-1", enddate = start - 1, campaign_ids = ids_list)
