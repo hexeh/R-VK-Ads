@@ -1,5 +1,6 @@
 objectsVK <- function(vk_token, acc_id, cli_id, o_type, ...)
 {
+  dots <- list(...)
   if("lib" %in% names(dots)){
     library("httr", lib.loc = dots[["lib"]])
   }
