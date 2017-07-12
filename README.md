@@ -3,7 +3,7 @@
 
 ---
  
-#Получение токена
+# Получение токена
  
 ```R
 # Simply get token
@@ -23,7 +23,7 @@ tokenVK(store = TRUE, token = my_token)
 
 ---
 
-#Получение списка объектов
+# Получение списка объектов
  
 ```R
 my_account_id = "1234567890"
@@ -48,7 +48,7 @@ list_of_campaigns <- objectsVK(vk_token, acc_id = my_account_id, cli_id = my_cli
 
 ---
 
-#Получение статистики
+# Получение статистики
 
 ```R
 ids_list <- list_of_campaigns$digest[,1]
@@ -72,7 +72,7 @@ write(my_ads_stats, file = "my_stats.json")
  
 ---
  
-#Получение данных о демографии
+# Получение данных о демографии
 
 ```R
 ids_list <- list_of_campaigns$digest[,1]
@@ -87,10 +87,10 @@ write(my_dmg_stats, file = "my_stats.json")
  
 ---
 
-#Зависимости 
+# Зависимости 
 
 [R-3.3.2](https://cran.r-project.org/)
 
-##Пакеты:
+## Пакеты:
  - [Jsonlite](https://cran.r-project.org/web/packages/jsonlite/index.html)
  - [httr](https://cran.r-project.org/web/packages/httr/index.html)
